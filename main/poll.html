@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <style>
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-container {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-open {
+            opacity: 1;
+        }
+
+        .modal-container-open {
+            transform: translate(0, 0);
+        }
+        /* .card {
+            height: 49%;
+            width: 32.5%;
+        } */
+    </style>
+</head>
+
+<body class="bg-voteIMG2 bg-cover bg-center h-screen  bg-no-repeat  ">
+    <nav class="bg-[#ffcc01]">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <!-- <div class="absolute inset-y-0 left-0 flex items-center sm:hidden"> -->
+                <!-- Mobile menu button-->
+                <!-- <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span> -->
+                <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                <!-- <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg> -->
+                <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                <!-- <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button> -->
+                <!-- </div> -->
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                            alt="Your Company">
+                    </div>
+                </div>
+                <div class="flex flex-auto text-white text-xl font-bold">
+                    <h1>Welcome ! To My Polling App</h1>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <!-- <button type="button"
+                        class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span class="sr-only">View notifications</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    </button> -->
+
+                    <!-- Profile dropdown -->
+                    <div class="relative ml-3">
+                        <div>
+                            <button type="button"
+                                class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                            </button>
+                        </div>
+
+                        <!--
+                  Dropdown menu, show/hide based on menu state.
+      
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                        <div class="absolute hidden right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="user-menu-item-2">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <!-- <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+          </div>
+        </div> -->
+    </nav>
+    <main class="h-5/6 flex w-full justify-center items-center">
+        <div id="createPollModal"
+            class="modal createPollModel fixed  w-full border-2 border-yellow-600 h-full top-0 left-0 flex items-center justify-center opacity-0 hidden">
+            <div class="createPoll-modal-overlay  absolute w-full h-full bg-gray-900 opacity-50"></div>
+            <div
+                class="createPoll-modal-container modal-container bg-[#ffcc01] w-11/12 md:max-w-md mx-auto h-5/6 rounded-xl shadow-lg z-50 overflow-y-auto transform -translate-y-32">
+                <div class="createPoll-modal-content  space-y-4 text-left">
+                    <div class="flex justify-between py-4 border-b-2 border-white border-solid items-center pb-3">
+                        <p class="text-2xl font-bold text-white px-6">Create Poll</p>
+                        <div class="createPoll-modal-close cursor-pointer px-6 z-50">
+                            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 18 18">
+                                <path
+                                    d="M18 1.636L16.364 0 9 7.364 1.636 0 0 1.636 7.364 9 0 16.364 1.636 18 9 10.636 16.364 18 18 16.364 10.636 9 18 1.636z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col py-2 space-y-2 px-6">
+                        <div class="text-white font-medium">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus finibus erat, id
+                                auctor
+                                quam
+                                iaculis ac. Integer a tortor non orci sagittis efficitur sed et diam.</p>
+                        </div>
+                        <div class="flex flex-col space-y-2 w-full">
+                            <div class="relative">
+                                <input type="text" name="" id="pollTitle" required
+                                    class="w-full p-2 text-white transition-colors peer bg-[#ffcc01] outline-none border-2 duration-500"
+                                    autocomplete="off">
+                                <label for="pollTitle"
+                                    class=" absolute peer-focus:text-xs bottom-[0.6rem] left-3 text-white font-semibold peer-focus:bg-[#ffcc01] 
+                                  peer-focus:transform peer-focus:-translate-y-6 peer-focus:pl-1 peer-focus:pr-1 duration-500  transition-all ">Poll
+                                    Title</label>
+                            </div>
+                            <div class="relative">
+                                <input type="text" name="" id="pollOption1" required
+                                    class="w-full p-2 text-white transition-colors peer bg-[#ffcc01] outline-none border-2 duration-500"
+                                    autocomplete="off">
+                                <label for="pollOption1"
+                                    class=" absolute peer-focus:text-xs bottom-[0.6rem] left-3 text-white font-semibold peer-focus:bg-[#ffcc01] 
+                                  peer-focus:transform peer-focus:-translate-y-6 peer-focus:pl-1 peer-focus:pr-1 duration-500  transition-all ">Poll
+                                    Option 1</label>
+                            </div>
+                            <div class="relative">
+                                <input type="text" name="" id="pollOption2" required
+                                    class="w-full p-2 text-white transition-colors peer bg-[#ffcc01] outline-none border-2 duration-500"
+                                    autocomplete="off">
+                                <label for="pollOption2"
+                                    class=" absolute peer-focus:text-xs bottom-[0.6rem] left-3 text-white font-semibold peer-focus:bg-[#ffcc01] 
+                                  peer-focus:transform peer-focus:-translate-y-6 peer-focus:pl-1 peer-focus:pr-1 duration-500  transition-all ">Poll
+                                    Option 2</label>
+                            </div>
+                            <div class="relative">
+                                <input type="text" name="" id="pollOption3" required
+                                    class="w-full p-2 text-white transition-colors peer bg-[#ffcc01] outline-none border-2 duration-500"
+                                    autocomplete="off">
+                                <label for="pollOption3"
+                                    class=" absolute peer-focus:text-xs bottom-[0.6rem] left-3 text-white font-semibold peer-focus:bg-[#ffcc01] 
+                                  peer-focus:transform peer-focus:-translate-y-6 peer-focus:pl-1 peer-focus:pr-1 duration-500  transition-all ">Poll
+                                    Option 3</label>
+                            </div>
+                            <div class="relative">
+                                <input type="text" name="" id="pollOption4" required
+                                    class="w-full p-2 text-white transition-colors peer bg-[#ffcc01] outline-none border-2 duration-500"
+                                    autocomplete="off">
+                                <label for="pollOption4"
+                                    class=" absolute peer-focus:text-xs bottom-[0.6rem] left-3 text-white font-semibold peer-focus:bg-[#ffcc01] 
+                                  peer-focus:transform peer-focus:-translate-y-6 peer-focus:pl-1 peer-focus:pr-1 duration-500  transition-all ">Poll
+                                    Option 4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex pt-2">
+                        <button
+                            class="modal-close px-4 w-full bg-[#ffcc01] border-t-2 border-solid hover:border-[#ffcc01] p-[0.85rem] font-semibold rounded-b-lg text-white hover:bg-white hover:text-[#ffcc01]"
+                            id="pollCreatedBut">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="myViewModal"
+            class="modal viewPollDataModal fixed  w-full border-2 border-yellow-600 h-full top-0 left-0 flex items-center justify-center opacity-0 hidden">
+            <div class="view-Modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+            <div
+                class="view-Modal-container modal-container bg-[#ffcc01] w-11/12 md:max-w-md mx-auto h-5/6 rounded-xl shadow-lg z-50 overflow-y-auto transform -translate-y-32">
+                <div class="modal-content  space-y-4 text-left">
+                    <div class="flex justify-between py-4 border-b-2 border-white border-solid items-center pb-3">
+                        <p class="text-2xl font-bold text-white px-6">Create Poll</p>
+                        <div class="view-Modal-close cursor-pointer px-6 z-50">
+                            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 18 18">
+                                <path
+                                    d="M18 1.636L16.364 0 9 7.364 1.636 0 0 1.636 7.364 9 0 16.364 1.636 18 9 10.636 16.364 18 18 16.364 10.636 9 18 1.636z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col py-2 space-y-6 px-6">
+                        <div class="text-white font-medium">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus finibus erat, id
+                                auctor
+                                quam
+                                iaculis ac. Integer a tortor non orci sagittis efficitur sed et diam.</p>
+                        </div>
+                        <div class="flex flex-col space-y-4 w-full">
+
+                            <div
+                                class="flex items-center pollOption1 w-full p-2 text-white bg-[#ffcc01] outline-none border-2 space-x-2">
+                                <input type="radio" name="fk" id="">
+                                <label for="">Random Option 1</label>
+                            </div>
+                            <div
+                                class="pollOption2 flex items-center space-x-2 w-full p-2 text-white bg-[#ffcc01] outline-none border-2">
+                                <input type="radio" name="fk" id="">
+                                <label for="">Random Option 2</label>
+                            </div>
+                            <div
+                                class="pollOption3 flex items-center space-x-2 w-full p-2 text-white bg-[#ffcc01] outline-none border-2">
+                                <input type="radio" name="fk" id="">
+                                <label for="">Random Option 3</label>
+                            </div>
+                            <div
+                                class="pollOption4 flex items-center space-x-2 w-full p-2 text-white bg-[#ffcc01] outline-none border-2">
+                                <input type="radio" name="fk" id="">
+                                <label for="">Random Option 4</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex pt-2 ">
+                        <button
+                            class="modal-close px-4 w-full bg-[#ffcc01] border-t-2 border-solid hover:border-[#ffcc01] p-[1.25rem] font-semibold rounded-b-lg text-white hover:bg-white hover:text-[#ffcc01]"
+                            id="pollCreatedBut">Add a Vote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardContainer container  border-2 sm:space-x-3 flex flex-col sm:flex-row w-full  sm:w-11/12 h-full sm:h-5/6 p-2  border-solid " >
+            <!-- <div class="card flex justify-center items-center bg-yellow-500/20 w-1/3 rounded-xl border-2 border-yellow-500 border-solid">
+                <button class="bg-yellow-500 text-white font-bold p-2  rounded-lg" >Create A New Poll</button>
+            </div> -->
+            <div
+                class="flex justify-center items-center border-2 bg-white/20 rounded-xl w-full sm:w-1/3 h-full border-[#ffcc01] border-solid">
+                <button class="bg-[#ffcc01] font-bold text-white p-2  rounded-lg" id="openModal">Create A New
+                    Poll</button>
+            </div>
+            <div class=" flex flex-wrap items-baseline border-2 space-x-1 space-y-1 w-full h-full overflow-y-scroll" id="cardContainer">
+                
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="./AppFiles/poll.js"></script>
+</body>
+
+</html>

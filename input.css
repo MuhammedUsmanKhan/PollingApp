@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@media screen and (max-width: 639px) {
+    .cardxs{
+        height: 98%;
+        width: 48.5%;
+    }      
+  }
+
+  @media screen and (min-width: 767px) {
+    .card{
+        height: 49%;
+        width: 32.5%
+  } 
+  }
